@@ -1,0 +1,17 @@
+services:
+  ulookup:
+    env_file:
+      - config.env.test
+    depends_on:
+      ldap:
+        condition: service_healthy
+      db:
+        condition: service_healthy
+  ldap:
+    image: gunet/simple-ldap
+    environment:
+      - TZ=Europe/Athens
+    restart: unless-stopped
+  db:
+    image: gunet/idm-test-views
+    restart: unless-stopped
