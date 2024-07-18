@@ -19,6 +19,12 @@
 * Pull των images (προαιρετικό, θα εκτελεστεί από το `docker compose up`): `docker compose -f docker-compose.yml -f docker-compose.test.yml pull`
 * Ενεργοποίηση του stack: `docker compose -f docker-compose.yml -f docker-compose.test.yml up -d`
 * Έλεγχος καλής λειτουργίας (τα αντίστοιχα services Θα πρέπει να εμφανίζονται ως `healthy`): `docker compose -f docker-compose.yml -f docker-compose.test.yml ps`
+```
+NAME                     COMMAND                  SERVICE             STATUS              PORTS
+ulookup-test-db-1        "docker-entrypoint.s…"   db                  running (healthy)   3306/tcp
+ulookup-test-ldap-1      "/opt/bitnami/script…"   ldap                running (healthy)   1389/tcp, 1636/tcp
+ulookup-test-ulookup-1   "java -jar ulookup.j…"   ulookup             running (healthy)   0.0.0.0:8080->8080/tcp, :::8080->8080/tcp
+```
 
 Στη συνέχεια μπορεί να γίνει προσπέλαση του uLookup στην πόρτα `8080` με το `ApiKey` `1234`:
 ```

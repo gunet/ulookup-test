@@ -3,7 +3,5 @@ services:
     image: ghcr.io/gunet/ulookup
     build: .
     restart: unless-stopped
-    env_file:
-      - config.env
     ports:
       - 8080:8080
